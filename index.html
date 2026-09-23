@@ -2,24 +2,119 @@
 <html>
 <head>
     <title>CodeQuest</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f8;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #2563eb;
+        }
+
+        pre {
+            background: #1e293b;
+            color: white;
+            padding: 20px;
+            text-align: left;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 8px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        #score {
+            color: #16a34a;
+        }
+    </style>
 </head>
+
 <body>
 
+<div class="container">
+
     <h1>🚀 CodeQuest</h1>
+
     <h2>Java Challenge</h2>
 
-    <p>What is the output?</p>
+    <p>What is the output of this Java program?</p>
 
     <pre>
 int a = 5;
 int b = 10;
+
 System.out.println(a + b);
     </pre>
 
-    <button>15</button>
-    <button>510</button>
-    <button>5 + 10</button>
-    <button>Error</button>
+    <h3>Choose your answer:</h3>
+
+    <button onclick="checkAnswer(true)">15</button>
+
+    <button onclick="checkAnswer(false)">510</button>
+
+    <button onclick="checkAnswer(false)">5 + 10</button>
+
+    <button onclick="checkAnswer(false)">Error</button>
+
+    <h3 id="result"></h3>
+
+    <h3 id="score">⭐ XP: 0</h3>
+
+</div>
+
+<script>
+
+let xp = 0;
+
+function checkAnswer(correct) {
+
+    if (correct) {
+
+        xp = xp + 10;
+
+        document.getElementById("result").innerHTML =
+            "🎉 Correct Answer! +10 XP";
+
+    } else {
+
+        document.getElementById("result").innerHTML =
+            "❌ Wrong Answer! Try Again.";
+
+    }
+
+    document.getElementById("score").innerHTML =
+        "⭐ XP: " + xp;
+}
+
+</script>
 
 </body>
 </html>
